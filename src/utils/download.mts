@@ -1009,6 +1009,9 @@ export async function downloadAndInstallToolchain(
 
   // select download url for platform()_arch()
   const platformDouble = `${process.platform}_${process.arch}`;
+  if (platformDouble == 'win32_arm64') {
+    platformDouble = 'win32_x64';
+  }
   const downloadUrl = toolchain.downloadUrls[platformDouble];
   const basenameSplit = basename(downloadUrl).split(".");
   let artifactExt = basenameSplit.pop();
