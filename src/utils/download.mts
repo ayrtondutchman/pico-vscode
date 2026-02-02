@@ -1008,7 +1008,7 @@ export async function downloadAndInstallToolchain(
   const targetDirectory = buildToolchainPath(toolchain.version);
 
   // select download url for platform()_arch()
-  const platformDouble = `${process.platform}_${process.arch}`;
+  let platformDouble = `${process.platform}_${process.arch}`;
   if (platformDouble == 'win32_arm64') {
     platformDouble = 'win32_x64';
   }
